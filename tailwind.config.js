@@ -5,13 +5,19 @@ export default {
     "./index.html",
     "./src/**/*.{js,ts,jsx,tsx}",
   ],
-
-  
-    daisyui: {
-    themes: ["light"],
-  
-    extend: {},
+  theme: {
+    extend: {
+      fontFamily: {
+        poiret: ['Poiret One', "serif"],
+        inter: ['Inter', 'serif']
+      }
+    },
   },
+
+  daisyui: {
+    themes: ["light"],
+  },
+
   plugins: [require("daisyui")],
 }
 
