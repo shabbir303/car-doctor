@@ -1,3 +1,4 @@
+/* eslint-disable react/no-unescaped-entities */
 import Long from '../../assets/person.jpg'
 import Short from '../../assets/parts.jpg'
 import { Link } from 'react-router-dom';

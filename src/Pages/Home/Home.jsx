@@ -13,6 +13,7 @@ import 'swiper/css';
 import 'swiper/css/pagination';
 import 'swiper/css/navigation';
 import AboutH from '../About/AboutH';
+import ServiceH from '../Service/ServiceH';
 // import './Swiper.css'
 
 const Home = () => {
@@ -48,11 +49,14 @@ const Home = () => {
                         <button className='text-white text-[18px] font-[600] uppercase btn btn-outline btn-info'>latest project</button>
                     </div>
                 </div>
-                    
+
             </div>
             <div className='my-[130px]'>
-                        <AboutH></AboutH>
-                    </div>
+                <AboutH></AboutH>
+            </div>
+            <div className='mt-[130px]'>
+                <ServiceH></ServiceH>
+            </div>
         </>
     );
 };
