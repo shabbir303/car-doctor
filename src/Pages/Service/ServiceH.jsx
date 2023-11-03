@@ -6,7 +6,7 @@ import { Link } from "react-router-dom";
 const ServiceH = () => {
     const [serviceData, setServiceData] = useState([]);
     useEffect(() => {
-        fetch('service.json')
+        fetch('http://localhost:5000/services')
             .then(res => res.json())
             .then(data => {
                 console.log(data)
@@ -23,12 +23,14 @@ const ServiceH = () => {
             </div>
             <div className="grid grid-cols-3 max-w-7xl gap-[20px] mx-auto my-[40px]">
                 {
-                    serviceData.map(eachService => <div key={eachService.id} className="p-[20px] border-[1px] rounded-lg">
+                    serviceData.map(eachService => <div key={eachService._id} className="p-[20px] border-[1px] rounded-lg">
                         <img src={eachService.img} alt="" className="w-[400px] h-[210px] object-cover rounded-lg " />
                         <h1 className="text-[25px] font-[700] my-[15px] ">{eachService.title} </h1>
                         <div className="flex mb-[20px] justify-between items-center">
                             <h1 className="text-[#FF3811] text-[20px] font-[600] ">Price: ${eachService.price} </h1>
-                            <img className="h-[24px] w-[24px] " src="https://i.ibb.co/cC3Wn3S/Frame.png" alt="" />
+                            <Link to={`/checkout/${eachService._id}`}>
+                                <img className="h-[24px] w-[24px] " src="https://i.ibb.co/cC3Wn3S/Frame.png" alt="" />
+                            </Link>
                         </div>
 
                     </div>)
