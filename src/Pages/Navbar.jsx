@@ -1,7 +1,20 @@
-import { NavLink } from 'react-router-dom';
+import { Link, NavLink } from 'react-router-dom';
 import logo from '../../public/logo.svg'
+import { useContext } from 'react';
+import { AuthContext } from '../Provider/AuthProvider';
 
 const Navbar = () => {
+  const {signOut, user} = useContext(AuthContext);
+  const handleSignOut = ()=>{
+      signOut()
+     .then(result=>{
+       console.log(result.user);
+    })
+    .catch(err=>{
+      console.log(err.message);
+    })
+  }
+
   const navLinks = <>
     <li><NavLink to='/'
      style={({ isActive}) => {
@@ -43,6 +56,10 @@ const Navbar = () => {
         };
       }}
     >Contact</NavLink></li>
+    {
+      user?.email? <li><button onClick={handleSignOut} >Logout</button> </li>: 
+      <li><Link to='/login'><button>Login </button></Link> </li>
+    }
   </>
   return (
     <div>
@@ -94,6 +111,11 @@ const Navbar = () => {
                   {navLinks}
                 </ul>
               </nav>
+            </div>
+            <div>
+              <Link to='booking'>
+              <img src="https://i.ibb.co/QnHPTmz/Services-ECommerce-v2-01-removebg-preview.png" alt="" className='w-[80px] h-[80px]'/>
+              </Link>
             </div>
 
             <div className="flex items-center gap-4">

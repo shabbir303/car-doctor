@@ -1,6 +1,6 @@
 import { useLoaderData } from "react-router-dom";
 import image from "../../assets/checkout.png"
-import { useContext, useEffect } from "react";
+import { useContext} from "react";
 import { AuthContext } from "../../Provider/AuthProvider";
 
 const CheckOut = () => {
